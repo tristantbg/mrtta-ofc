@@ -1,5 +1,37 @@
+// @import 'utils'
+
+$padding = 5rem
+
+font-url(file)
+  return 'fonts/' + file
+
+@font-face
+  font-family 'RM'
+  src url('fonts/RM.eot') format("eot"),
+    url('fonts/RM.eot?#iefix') format('embedded-opentype'),
+    url('fonts/RM.woff') format('woff'), 
+    url('fonts/RM.woff2') format('woff2'), 
+    url('fonts/RM.ttf') format('truetype'), 
+    url('fonts/RM.svg#RM') format('svg')
+  font-weight normal
+  font-style normal
+  
+@font-face
+  font-family 'RMI'
+  src url('fonts/RMI.eot') format("eot"),
+    url('fonts/RMI.eot?#iefix') format('embedded-opentype'),
+    url('fonts/RMI.woff') format('woff'), 
+    url('fonts/RMI.woff2') format('woff2'), 
+    url('fonts/RMI.ttf') format('truetype'), 
+    url('fonts/RMI.svg#RMI') format('svg')
+  font-weight normal
+  font-style normal
+
+*
+  box-sizing border-box
+
 html
-  font-size 10px
+  font-size 0.485vw
 
 body
   background black
@@ -7,7 +39,74 @@ body
   padding 0
   margin 0
   overflow hidden
-  font-size 1rem
+  font-family 'RM'
+  font-size 2.5rem
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &.intro
+    #intro
+      visibility visible
+    #corner::after
+      border-top-color black
+      border-right-color black
+
+em
+  font-family 'RMI'
+
+p
+  margin 0
+
+#intro
+  position fixed
+  top 0
+  left 0
+  width 100%
+  height 100%
+  z-index 100
+  font-size 6.6rem
+  background white
+  color black
+  line-height 1.3
+  display flex
+  justify-content center
+  align-items center
+  visibility hidden
+  svg
+    display block
+    width 85%
+
+#corner
+  position fixed
+  top 0
+  right 0
+  width 18rem
+  height 18rem
+  z-index 110
+  &::before,
+  &::after
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-color: transparent;
+    border-style: solid;
+  &::after
+    border-width: 18rem;
+    border-right-color: white;
+    border-top-color: white;
+
+#nav
+  position fixed
+  top 50%
+  right $padding
+  z-index 100
+  transform translateY(-50%)
+  div
+    &:first-child
+      margin-bottom 4rem
+    svg
+      display block
+      width 4.5rem
 
 .book
   position fixed
@@ -15,17 +114,49 @@ body
   left 0
   height 100%
   width 100%
+  &:not(:first-child)
+    visibility hidden
   iframe
     width 100%
-    height 105%
+    height 103.5%
   .description, .infos
     position absolute
-    z-index 100
+    z-index 10
+    pointer-events none
   .description
-    top 20px
-    left 20px
-    width 20rem
+    top $padding
+    left $padding
+    width 48rem
   .infos
     width 100%
-    bottom 20px
+    bottom 0
     left 0
+    padding $padding
+    .inner
+      border 1px solid
+    .top, .middle, .bottom
+      display flex
+      justify-content space-between
+      &:not(:last-child)
+        border-bottom 1px solid
+      & > *
+        padding .2em
+    .middle, .bottom
+      & > *
+        &:not(:first-child)
+          border-left 1px solid
+    .top
+      div:nth-child(1)
+        flex-grow 1
+      div:last-child
+        margin-left 3em
+    .middle
+      *
+        flex-grow 1
+    .bottom
+      *
+        flex-grow 1
+
+
+
+
