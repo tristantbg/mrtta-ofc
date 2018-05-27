@@ -2,6 +2,12 @@
 
 $padding = 5rem
 
+flowing-paragraph(n)
+  p
+    margin-bottom: 0
+  p + p
+    text-indent: (n)
+
 font-url(file)
   return 'fonts/' + file
 
@@ -52,6 +58,7 @@ body
 
 em
   font-family 'RMI'
+  font-style normal
 
 p
   margin 0
@@ -126,7 +133,8 @@ p
   .description
     top $padding
     left $padding
-    width 48rem
+    width 49rem
+    flowing-paragraph(1em)
   .infos
     width 100%
     bottom 0

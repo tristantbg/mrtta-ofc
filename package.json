@@ -4,7 +4,8 @@
   "licence": "MIT",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --public-url ./"
+    "build": "parcel build index.html --public-url ./",
+    "deploy": "parcel build index.html --public-url ./ & copyfiles --flat views/*.html dist/views"
   },
   "devDependencies": {
     "node-sass": "^4.9.0",
