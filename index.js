@@ -1,6 +1,7 @@
 // import d'un autre composant
 import main from './main.styl';
-import Flickity from 'flickity';
+// import Flickity from 'flickity';
+require('viewport-units-buggyfill').init();
 
 const App = {
   init: () => {
@@ -24,16 +25,25 @@ const App = {
     document.body.classList.toggle('intro')
   },
   next: () => {
+    // App.books[App.current].style.opacity = 0
+    // App.books[App.current].style.pointerEvents = 'none'
     App.books[App.current].style.visibility = 'hidden'
-    App.current = (App.current + 1)%(App.books.length - 1)
+    App.current = App.current + 1
+    if (App.current > App.books.length - 1) App.current = 0
     console.log(App.current)
+    // App.books[App.current].style.opacity = 1
+    // App.books[App.current].style.pointerEvents = 'auto'
     App.books[App.current].style.visibility = 'visible'
   },
   prev: () => {
+    // App.books[App.current].style.opacity = 0
+    // App.books[App.current].style.pointerEvents = 'none'
     App.books[App.current].style.visibility = 'hidden'
     App.current = App.current - 1
     if (App.current < 0) App.current = App.books.length - 1
     console.log(App.current)
+    // App.books[App.current].style.opacity = 1
+    // App.books[App.current].style.pointerEvents = 'auto'
     App.books[App.current].style.visibility = 'visible'
   }
 }
