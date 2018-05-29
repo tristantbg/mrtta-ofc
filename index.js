@@ -20,6 +20,7 @@ const App = {
     document.getElementById('prev').addEventListener('click', App.prev)
     document.getElementById('next').addEventListener('click', App.next)
     document.getElementById('corner').addEventListener('click', App.intro)
+    document.getElementById('intro').addEventListener('click', App.intro)
   },
   intro: () => {
     document.body.classList.toggle('intro')
