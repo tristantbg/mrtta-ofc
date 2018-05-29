@@ -49,12 +49,17 @@ body
   font-size 2.5rem
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust 100%
+  -webkit-tap-highlight-color transparent
   &.intro
     #intro
       visibility visible
     #corner::after
       border-top-color black
       border-right-color black
+
+a, a:hover, a:visited, a:active
+  color white
 
 em
   font-family 'RMI'
@@ -99,8 +104,8 @@ p
     border-style: solid;
   &::after
     border-width: 13rem;
-    border-right-color: white;
-    border-top-color: white;
+    border-right-color: rgb(255,0,0);
+    border-top-color: rgb(255,0,0);
 
 #nav
   position fixed
